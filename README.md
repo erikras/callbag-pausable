@@ -11,7 +11,7 @@ Think of it like a valve on a pipe.
 import interval from 'callbag-interval'
 import observe from 'callbag-observe'
 import pipe from 'callbag-pipe'
-import pausable, { PAUSE, RESUME } from 'callbag-pipe'
+import pausable, { PAUSE, RESUME } from 'callbag-pausable'
 
 const source = pipe(interval(100), pausable)
 
