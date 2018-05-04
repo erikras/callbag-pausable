@@ -43,3 +43,23 @@ observe(console.log)(source) // 0
 ```
 
 <!-- prettier-ignore-end -->
+
+Or, as a talkback to an existing callbag (assuming `callbag$` has `pausable` somewhere in its pipe):
+
+<!-- prettier-ignore -->
+```js
+const sendTalkbackValue = (callbag$, value) => {
+  if (callbag$) {
+    callbag$(0, (type, talkback) => {
+      if (type === 0) {
+        talkback(1, value) // send value
+        talkback(2)        // terminate
+      }
+    })
+  }
+}
+const pause = callbag$ => sendTalkbackValue(callbag$, PAUSE)
+const resume = callbag$ => sendTalkbackValue(callbag$, RESUME)
+```
+
+<!-- prettier-ignore-end -->
