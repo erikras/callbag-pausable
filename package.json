@@ -1,5 +1,5 @@
 {
-  "name": "callback-pausable",
+  "name": "callbag-pausable",
   "version": "1.0.0",
   "description":
     "A callbag operator that allows values to pass through, but allows the value stream to be paused",
