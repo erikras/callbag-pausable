@@ -17,11 +17,11 @@ const source = pipe(interval(100), pausable)
 
 setTimeout(() => {
   console.log('PAUSING')
-  pausableInterval(1, PAUSE)
+  source(1, PAUSE)
 }, 400)
 setTimeout(() => {
   console.log('RESUMING')
-  pausableInterval(1, RESUME)
+  source(1, RESUME)
 }, 1000)
 
 observe(console.log)(source) // 0
