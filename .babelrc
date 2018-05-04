@@ -1,0 +1,15 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "loose": true,
+        "targets": {
+          "node": "8"
+        }
+      }
+    ],
+    "stage-2"
+  ],
+  "plugins": ["transform-flow-strip-types"]
+}
