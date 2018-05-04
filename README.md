@@ -7,7 +7,7 @@
 
 <img src="valve.jpg" align="right"/>
 
-[Callbag](https://github.com/callbag/callbag) operator that allows data and talkbacks to pass through it freely until it received a data or talkback message of `PAUSE`, in which case it stops the downflow of data until it receives another data or talkback message of `RESUME`.
+[Callbag](https://github.com/callbag/callbag) operator that allows data and talkbacks to pass through it freely until it receives a data or talkback message of `PAUSE`, in which case it stops the downflow of data until it receives another data or talkback message of `RESUME`.
 
 Think of it like a valve on a pipe.
 
