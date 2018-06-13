@@ -1,21 +1,21 @@
 {
   "name": "callbag-pausable",
-  "version": "1.0.0",
-  "description":
-    "A callbag operator that allows values to pass through, but allows the value stream to be paused",
+  "version": "1.0.1",
+  "description": "A callbag operator that allows values to pass through, but allows the value stream to be paused",
   "main": "dist/callbag-pausable.cjs.js",
   "jsnext:main": "dist/callbag-pausable.es.js",
   "module": "dist/callbag-pausable.es.js",
   "typings": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "nps",
     "test": "nps test",
     "precommit": "lint-staged && npm start validate",
     "prepublish": "lint-staged && npm start validate"
   },
-  "author":
-    "Erik Rasmussen <rasmussenerik@gmail.com> (http://github.com/erikras)",
+  "author": "Erik Rasmussen <rasmussenerik@gmail.com> (http://github.com/erikras)",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -60,7 +60,10 @@
     "rollup-plugin-uglify": "^3.0.0"
   },
   "lint-staged": {
-    "*.{js*,json,md,css}": ["prettier --write", "git add"]
+    "*.{js*,json,md,css}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "bundlesize": [
     {
@@ -75,9 +78,5 @@
       "path": "dist/callbag-pausable.cjs.js",
       "threshold": "500B"
     }
-  ],
-  "dependencies": {
-    "callbag-interval": "^1.0.0",
-    "callbag-observe": "^1.0.0"
-  }
+  ]
 }
