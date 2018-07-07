@@ -1,6 +1,6 @@
 {
   "name": "callbag-pausable",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A callbag operator that allows values to pass through, but allows the value stream to be paused",
   "main": "dist/callbag-pausable.cjs.js",
   "jsnext:main": "dist/callbag-pausable.es.js",
