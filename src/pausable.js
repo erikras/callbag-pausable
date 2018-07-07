@@ -13,7 +13,7 @@ const pausable = source => {
             paused = true
           } else if (d === RESUME) {
             paused = false
-          } else {
+          } else if (talkback) {
             talkback(t, d)
           }
         } else if (t === 2 && talkback) {

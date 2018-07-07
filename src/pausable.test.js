@@ -10,7 +10,12 @@ describe('pausable', () => {
     const source = mock(true)
     const sink = mock()
 
-    const callbag = pipe(source, map(x => x * 2), pausable, tap(spy))
+    const callbag = pipe(
+      source,
+      map(x => x * 2),
+      pausable,
+      tap(spy)
+    )
 
     callbag(0, sink)
     expect(spy).not.toHaveBeenCalled()
@@ -39,7 +44,12 @@ describe('pausable', () => {
     const source = mock(true)
     const sink = mock()
 
-    const callbag = pipe(source, map(x => x * 2), pausable, tap(spy))
+    const callbag = pipe(
+      source,
+      map(x => x * 2),
+      pausable,
+      tap(spy)
+    )
 
     callbag(0, sink)
     expect(spy).not.toHaveBeenCalled()
@@ -78,7 +88,12 @@ describe('pausable', () => {
     const source = mock(true)
     const sink = mock()
 
-    const callbag = pipe(source, pausable, map(x => x * 2), tap(spy))
+    const callbag = pipe(
+      source,
+      pausable,
+      map(x => x * 2),
+      tap(spy)
+    )
 
     callbag(0, sink)
     expect(spy).not.toHaveBeenCalled()
@@ -118,7 +133,12 @@ describe('pausable', () => {
     const source = mock(true)
     const sink = mock()
 
-    const callbag = pipe(source, map(x => x * 2), pausable, tap(spy))
+    const callbag = pipe(
+      source,
+      map(x => x * 2),
+      pausable,
+      tap(spy)
+    )
 
     callbag(0, sink)
     expect(spy).not.toHaveBeenCalled()
@@ -150,7 +170,11 @@ describe('pausable', () => {
     // mainly for code coverage
     const source = mock(true)
     const sink = mock()
-    const callbag = pipe(source, map(x => x * 2), pausable)
+    const callbag = pipe(
+      source,
+      map(x => x * 2),
+      pausable
+    )
     callbag(0, sink)
 
     sink.emit(0)
@@ -162,11 +186,38 @@ describe('pausable', () => {
     // mainly for code coverage
     const source = mock(true)
     const sink = mock()
-    const callbag = pipe(source, map(x => x * 2), pausable)
+    const callbag = pipe(
+      source,
+      map(x => x * 2),
+      pausable
+    )
     callbag(0, sink)
 
     source.emit(3)
     source.emit(4)
     source.emit(5)
+  })
+
+  it('should not care if data received but no talkback from source', () => {
+    // mainly for code coverage
+    const source = (t, d) => {
+      if (t === 0) {
+        const sink = d
+        sink(0, undefined) // no talkback given
+      }
+    }
+    const callbag = pausable(source)
+
+    // start
+    let talkback
+    callbag(0, (t, d) => {
+      if (t === 0) {
+        talkback = d
+      }
+    })
+    talkback(1, 'talkback data')
+
+    // terminate
+    callbag(2)
   })
 })
