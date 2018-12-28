@@ -36,6 +36,13 @@ const pausable = source => {
         }
       })
     }
+    if (type === 1) {
+      if (data === PAUSE) {
+        paused = true
+      } else if (data === RESUME) {
+        paused = false
+      }
+    }
   }
 }
 export default pausable
